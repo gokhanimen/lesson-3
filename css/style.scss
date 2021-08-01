@@ -95,3 +95,143 @@ a {
         }
     }
 }
+.detail {
+    height: 100vh;
+    width: 100%;
+    & .navigation {
+        height: 50px;
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 20px;
+        padding-left: 20px;
+        & .navbar-title {
+            display: flex;
+            align-items: center;
+            & .icon {
+                height: 13px;
+                width: 12px;
+                display: inline-block;
+            }
+            & p {
+                font-family: $font-lato;
+                font-weight: 700;
+                font-size: 12px;
+                color: #152766;
+                margin-left: 7px;
+            }
+        }
+        & .navbar-search {
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 5px;
+                top: 50%;
+                transform: translateY(-40%);
+                height: 17px;
+                width: 17px;
+                display: inline-block;
+                background-image: url(../img/search.png);
+                background-repeat: no-repeat;
+            }
+            & input {
+                width: 250px;
+                height: 20px;
+                padding: 5px 20px;
+                border: none;
+                border-bottom: 1px solid #8495d1;
+                outline: none;
+                &::placeholder {
+                    font-family: $font-lato;
+                    font-weight: 500;
+                    font-size: 14px;
+                }
+            }
+        }
+        & .navbar-notification {
+            display: flex;
+            align-items: center;
+            position: relative;
+            & .new{
+                display: flex;
+                flex-direction: column;
+                margin-right: 30px;
+            }
+            & .new-menu-dropdown{
+                list-style: none;
+                display: none;
+                position: absolute;
+                top: 30px;
+                background-color: #fff;
+                padding: 10px;
+                & li{
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+            }
+            & .new-menu-btn{
+                display: none;
+                &:checked ~ .new-menu-dropdown{
+                    display: block;
+                }
+            }   
+            & .new-menu-content {
+                font-family: $font-lato;
+                font-weight: 700;
+                font-size: 12px;
+                color: #fff;
+                background-color: #2f80ed;
+                height: 25px;
+                width: 54px;
+                padding: 5px 8px;
+                border-radius: 5px;
+                text-decoration: none;
+                margin-right: 16px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                & .nav-arrow {
+                    display: inline-block;
+                    height: 4px;
+                    width: 7px;
+                    background-image: url(../img/arrow-down.svg);
+                    background-repeat: no-repeat;
+                    margin-left: 4px;
+                    margin-top: 2px;
+                }
+            }
+            & .nav-notification {
+                position: relative;
+                display: inline-block;
+                height: 13px;
+                width: 13px;
+                align-items: center;
+                background-repeat: no-repeat;
+                background-image: url(../img/notification.svg);
+                margin-right: 16px;
+                &[data-has-notification="true"] {
+                    &:after {
+                        display: block;
+                        position: absolute;
+                        top: 1px;
+                        right: 1px;
+                        content: "";
+                        height: 5px;
+                        width: 5px;
+                        border-radius: 50%;
+                        background-color: #e83882;
+                    }
+                }
+            }
+            & p {
+                font-family: $font-lato;
+                font-weight: 700;
+                font-size: 12px;
+                color: #152766;
+            }
+        }
+    }
+    }
