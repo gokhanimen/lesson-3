@@ -95,6 +95,7 @@ a {
         }
     }
 }
+
 .detail {
     height: 100vh;
     width: 100%;
@@ -234,4 +235,219 @@ a {
             }
         }
     }
+    & .content {
+        height: calc(100vh - 50px);
+        width: 100%;
+        overflow-y: scroll;
+        background-color: #f7f7f7;
+        padding: 20px;
+        & .contact-title {
+            font-family: $font-lato;
+            font-weight: 400;
+            font-size: 18px;
+            color: #152766;
+            margin-bottom: 26px;
+        }
+        & .tab {
+            font-family: $font-lato;
+            font-weight: 400;
+            font-size: 12px;
+            color: #152766;
+            margin-bottom: 22px;
+            & .contact-members {
+                height: 29px;
+                width: 72px;
+                margin-right: 17px;
+            }
+            & .contact-teams {
+                margin-right: 17px;
+            }
+            & .contact-pending {
+                margin-right: 17px;
+            }
+            & label {
+                cursor: pointer;
+                &.-active {
+                    color: #fff;
+                    padding: 10px;
+                    background-color: #152766;
+                    border-radius: 5px;
+                }
+            }
+        }
+        & .tab-content {
+            display: none;
+            & .persons {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-left: -10px;
+                margin-right: -10px;
+                & .person {
+                    display: flex;
+                    position: relative;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    min-height: 240px;
+                    width: calc(20% - 20px);
+                    background-color: #fff;
+                    margin: 10px;
+                    padding-bottom: 15px;
+                    box-sizing: border-box;
+                    text-decoration: none;
+                    &-edit {
+                        position: absolute;
+                        top: 30px;
+                        right: 20px;
+                        display: none;
+                        height: 125px;
+                        width: 150px;
+                        padding: 20px 15px;
+                        background-color: #fff;
+                        box-shadow: 0 6px 15px rgba(#2f80ed, 0.2);
+                        font-family: $font-lato;
+                        font-weight: 700;
+                        font-size: 12px;
+                        line-height: 28px;
+                        color: #152766;
+                        text-align: left;
+                        & ul {
+                            margin-left: 20px;
+                        }
+                        & li:nth-child(1) {
+                            list-style-image: url(../img/assign.svg);
+                        }
+                        & li:nth-child(2) {
+                            list-style-image: url(../img/record.svg);
+                        }
+                        & li:nth-child(3) {
+                            list-style-image: url(../img/remove.svg);
+                        }
+                        &-btn {
+                            display: none;
+                            &:checked+.person-edit {
+                                display: block;
+                            }
+                        }
+                    }
+                    & label {
+                        display: inline-block;
+                        height: 20px;
+                        width: 20px;
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        cursor: pointer;
+                        background-repeat: no-repeat;
+                        background-image: url(../img/edit.svg);
+                        background-position: 9px;
+                    }
+                    & img {
+                        margin-top: 19px;
+                        margin-bottom: 15px;
+                        object-fit: cover;
+                    }
+                    &-name {
+                        font-family: $font-lato;
+                        font-weight: 700;
+                        font-size: 14px;
+                        margin-bottom: 20px;
+                    }
+                    &-job {
+                        background-color: rgba(#8495d1, 0.2);
+                        color: #000;
+                        font-family: $font-lato;
+                        font-weight: 400;
+                        font-size: 10px;
+                        text-align: center;
+                        margin-bottom: 25px;
+                        padding: 6px 10px;
+                        border-radius: 20px;
+                    }
+                    &-info {
+                        & .info {
+                            display: flex;
+                            margin-bottom: 15px;
+                            background-color: #f7f7f7;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 10px 25px;
+                            margin-bottom: 15px;
+                            text-align: center;
+                            & .boards {
+                                margin-right: 40px;
+                                & .board-score {
+                                    font-family: $font-roboto;
+                                    font-weight: 700;
+                                    font-size: 14px;
+                                }
+                            }
+                            & .board-name {
+                                font-family: $font-roboto;
+                                font-weight: 400;
+                                font-size: 12px;
+                            }
+                            & .tasks {
+                                & .task-score {
+                                    font-family: $font-roboto;
+                                    font-weight: 700;
+                                    font-size: 14px;
+                                }
+                            }
+                            & .task-name {
+                                font-family: $font-roboto;
+                                font-weight: 400;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    &-lateness {
+                        font-family: $font-roboto;
+                        font-weight: 700;
+                        font-size: 13px;
+                        color: #e83882;
+                    }
+                }
+                & .invite {
+                    height: 274px;
+                    width: 250px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: $font-lato;
+                    font-weight: 700;
+                    font-size: 13px;
+                    cursor: pointer;
+                    background-color: #e0e4f0;
+                    margin-left: 8px;
+                    & a {
+                        color: #2f80ed;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        & .team-content, .pending-content {
+            display: none;
+        }
+        & input {
+            display: none;
+            &.members {
+                &:checked + .tab-content {
+                    display: block;
+                }
+            }
+            &.teams {
+                &:checked + .team-content {
+                    display: block;
+                }
+            }
+            &.pending {
+                &:checked + .pending-content {
+                    display: block;
+                }
+            }
+        }
     }
+}
